@@ -2,8 +2,11 @@ import axios from 'axios';
 import { decrypt } from '../utils/crypto';
 
 
+const apiURL = import.meta.env.VITE_API_URL || '';
+const baseURL = apiURL.endsWith('/api') ? apiURL : `${apiURL}/api`;
+
 const api = axios.create({
-  baseURL: `${import.meta.env.VITE_API_URL}`,
+  baseURL,
   withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
 });
