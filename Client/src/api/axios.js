@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { decrypt } from '../utils/crypto';
-  
+
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: `${import.meta.env.VITE_API_URL}`,
   withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
 });
